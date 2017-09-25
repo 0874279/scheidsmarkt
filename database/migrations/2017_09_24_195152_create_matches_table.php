@@ -19,6 +19,7 @@ class CreateMatchesTable extends Migration
             $table->time('time');
             $table->integer('club_id');
             $table->integer('teamnumber');
+            $table->integer('typeteam_id');
             $table->string('awayteam');
             $table->integer('matchtype_id');
             $table->integer('categorytype_id');
