@@ -1,7 +1,7 @@
 @extends ('layout')
 
 @section ('content')
-
+    <title>Nieuwe wedstrijd</title>
     <h1>Plaats nieuwe wedstrijd</h1>
 
     <form>
@@ -45,20 +45,17 @@
             <div class="col-sm-3">
             <label for="matchtype_id">Type wedstrijd</label>
             <select class="form-control" id="matchtype_id">
-                <option>Move this to database!</option>
-                <option>Competitiewedstrijd</option>
-                <option>Bekerwedstrijd</option>
-                <option>Oefenwedstrijd</option>
-                <option>Toernooi</option>
-                <option>Zaalwedstrijd</option>
+                @foreach($typematch as $type)
+                    <option value="{{$type->id}}">{{$type->name}}</option>
+                @endforeach
             </select>
             </div>
             <div class="col-sm-3">
                 <label for="categorytype_id">Categorie</label>
                 <select class="form-control" id="categorytype_id">
-                    <option>Move this to database!</option>
-                    <option>A Categorie</option>
-                    <option>B Categorie</option>
+                    @foreach($category as $type)
+                        <option value="{{$type->id}}">{{$type->name}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
@@ -66,10 +63,9 @@
             <div class="col-sm-6">
                 <label for="class_id">Klasse</label>
                 <select class="form-control" id="class_id">
-                    <option>Move this to database!</option>
-                    <option>Reserve 4e klasse</option>
-                    <option>Reserve 5e klasse</option>
-                    <option>Etc..</option>
+                    @foreach($class as $type)
+                        <option value="{{$type->id}}">{{$type->name}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
