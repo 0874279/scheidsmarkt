@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Quotation;
+use App\Match;
 
 
 class MatchController extends Controller
@@ -18,5 +19,16 @@ class MatchController extends Controller
         $category = DB::table('category')->get();
 
         return view('create.index', compact('typeteam', 'typematch', 'class', 'category'));
+    }
+
+    public function store(){
+
+        // Create a new match
+
+        // Save it to the db
+        Match::create(request()->all());
+
+        // Redirect home
+        return redirect('/');
     }
 }

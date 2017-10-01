@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTypeteamsTable extends Migration
+class CreateTypeteamTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTypeteamsTable extends Migration
      */
     public function up()
     {
-        Schema::create('typeteams', function (Blueprint $table) {
+        Schema::create('typeteam', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
         });

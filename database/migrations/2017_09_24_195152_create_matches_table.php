@@ -26,7 +26,7 @@ class CreateMatchesTable extends Migration
             $table->integer('class_id');
             $table->integer('responded_referees');
             $table->integer('assigned_referee_id');
-
+            $table->timestamp('created_at')->nullable();
         });
     }
 
