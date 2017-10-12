@@ -15,7 +15,7 @@ class seedall extends Seeder
      */
     public function run()
     {
-        DB::table('class')->insert([
+        DB::table('typeclasses')->insert([
             ['name'=>('Reserve 4e klasse')],
             ['name'=>('Reserve 5e klasse')],
             ['name'=>('Reserve 6e klasse')],
@@ -23,12 +23,12 @@ class seedall extends Seeder
             ['name'=>('Reserve 8e klasse')],
         ]);
 
-        DB::table('category')->insert([
+        DB::table('typecategories')->insert([
             ['name'=>('A Categorie')],
             ['name'=>('B Categorie')],
         ]);
 
-        DB::table('typematch')->insert([
+        DB::table('typematches')->insert([
             ['name'=>('Competitiewedstrijd')],
             ['name'=>('Bekerwedstrijd')],
             ['name'=>('Oefenwedstrijd')],
@@ -36,7 +36,7 @@ class seedall extends Seeder
             ['name'=>('Zaalwedstrijd')],
         ]);
 
-        DB::table('typeteam')->insert([
+        DB::table('typeteams')->insert([
             ['name'=>('Heren')],
             ['name'=>('Dames')],
             ['name'=>('G-voetbal')],

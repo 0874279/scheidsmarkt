@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTypeteamTable extends Migration
+class CreateTypecategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateTypeteamTable extends Migration
      */
     public function up()
     {
-        Schema::create('typeteam', function (Blueprint $table) {
+        Schema::create('typecategories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +27,6 @@ class CreateTypeteamTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('typeteam');
+        Schema::dropIfExists('typecategories');
     }
 }

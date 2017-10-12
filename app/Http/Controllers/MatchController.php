@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use DB;
 use App\Quotation;
 use App\Match;
-use App\Typeteam;
 
 
 class MatchController extends Controller
@@ -22,12 +21,12 @@ class MatchController extends Controller
 
     public function create()
     {
-        $typeteam = DB::table('typeteam')->get();
-        $typematch = DB::table('typematch')->get();
-        $class = DB::table('class')->get();
-        $category = DB::table('category')->get();
+        $typeteams = DB::table('typeteams')->get();
+        $typematch = DB::table('typematches')->get();
+        $class = DB::table('typeclasses')->get();
+        $category = DB::table('typecategories')->get();
 
-        return view('club.matches.create', compact('typeteam', 'typematch', 'class', 'category'));
+        return view('club.matches.create', compact('typeteams', 'typematch', 'class', 'category'));
     }
 
         public function store(Request $request)
@@ -35,7 +34,7 @@ class MatchController extends Controller
         $this->validate(request(), [
             'date' => 'required',
             'time' => 'required',
-            'teamnummber' => 'required',
+            'teamnumber' => 'required',
             'awayteam' => 'required'
         ]);
 

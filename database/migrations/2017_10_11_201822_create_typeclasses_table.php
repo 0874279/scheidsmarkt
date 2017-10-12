@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTypematchTable extends Migration
+class CreateTypeclassesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateTypematchTable extends Migration
      */
     public function up()
     {
-        Schema::create('typematch', function (Blueprint $table) {
+        Schema::create('typeclasses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +27,6 @@ class CreateTypematchTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('typematch');
+        Schema::dropIfExists('typeclasses');
     }
 }
