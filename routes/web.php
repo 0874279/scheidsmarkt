@@ -8,3 +8,9 @@ Route::post('club/matches', 'MatchController@store');
 Route::get('club/matches', 'MatchController@index');
 // View a specific match
 Route::get('/club/matches/{match}', 'MatchController@show');
+
+// Create a session (login)
+Route::get('/login', 'SessionsController@create');
+
+// Create a new account (register)
+Route::get('/register', 'RegistrationController@create');
