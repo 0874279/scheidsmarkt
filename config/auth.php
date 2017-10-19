@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'clubs',
     ],
 
     /*
@@ -38,12 +38,22 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'clubs',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'clubs',
+        ],
+
+        'ref' => [
+            'driver' => 'session',
+            'provider' => 'refs',
+        ],
+
+        'ref-api' => [
+            'driver' => 'token',
+            'provider' => 'refs',
         ],
     ],
 
@@ -65,9 +75,13 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'clubs' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Club::class,
+        ],
+        'Refs' => [
+            'driver' => 'eloquent',
+            'model' => App\Ref::class,
         ],
 
         // 'users' => [
@@ -92,8 +106,13 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'clubs' => [
+            'provider' => 'clubs',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'refs' => [
+            'provider' => 'refs',
             'table' => 'password_resets',
             'expire' => 60,
         ],

@@ -44,7 +44,7 @@ class MatchController extends Controller
 
         Match::create([
 
-            'user_id' => auth()->id(),
+            'club_id' => auth()->id(),
             'date' => request('date'),
             'time' => request('time'),
             'typeteam_id' => request('typeteam_id'),

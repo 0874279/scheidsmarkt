@@ -3,7 +3,7 @@
         <div class="card-header" role="tab" id="heading{{$match->id}}">
             <h5 class="mb-0">
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$match->id}}" aria-expanded="false" aria-controls="collapseOne">
-                     {{$match->user->name}} {{$match->teamnumber}} - {{$match->awayteam}} op {{$match->date}} om {{$match->time}}
+                     {{$match->club->name}} {{$match->teamnumber}} - {{$match->awayteam}} op {{$match->date}} om {{$match->time}}
                 </a>
             </h5>
         </div>

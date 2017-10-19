@@ -20,10 +20,13 @@ class SessionsController extends Controller
     // login attempt
     public function store(){
         if (! auth()->attempt(request(['email', 'password']))) {
-            return back();
+
+                return back()->withErrors(['Gebruikersnaam of wachtwooord onjuist.']);
         }
 
         session()->flash('message', 'U bent ingelogd.');
+
+
 
         return redirect()->home();
     }

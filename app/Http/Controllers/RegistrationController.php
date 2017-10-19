@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Club;
+use App\Ref;
 use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
@@ -27,16 +28,29 @@ class RegistrationController extends Controller
             'phone' => 'required'
         ]);
 
-        //hash password
+        if (request() ['type'] == 1){
+            // Create the club
+            $club = Club::create(request(['type', 'name', 'email', 'password', 'address', 'zip', 'housenumber', 'housenumberadd', 'city', 'phone']));
+            // Sign in
+            auth()->login($club);
+            // Account created message
+            session()->flash('message', 'Bedankt voor het registreren. U bent automatisch ingelogd.');
+            // Redirect home
+            return redirect()->home();
+        }
 
-        // Create the user
-        $user = User::create(request(['type', 'name', 'email', 'password', 'address', 'zip', 'housenumber', 'housenumberadd', 'city', 'phone']));
+        else {
+            // Create the referee
+            $ref = Ref::create(request(['name', 'email', 'password', 'address', 'zip', 'housenumber', 'housenumberadd', 'city', 'phone']));
+            // Sign in
+            auth()->login($ref);
+            // Account created message
+            session()->flash('message', 'Bedankt voor het registreren. U bent automatisch ingelogd.');
+            // Redirect home
+            return redirect()->home();
+        }
 
-        // Sign in
-        auth()->login($user);
-        // Account created message
-        session()->flash('message', 'Bedankt voor het registreren. U bent automatisch ingelogd.');
-        // Redirect home
-        return redirect()->home();
+
+
     }
 }

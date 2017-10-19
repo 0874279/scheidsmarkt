@@ -17,7 +17,7 @@ class CreateMatchesTable extends Migration
             $table->increments('id');
             $table->date('date');
             $table->time('time');
-            $table->integer('user_id');
+            $table->integer('club_id');
             $table->integer('teamnumber');
             $table->integer('typeteam_id')->unsigned();
             $table->string('awayteam');

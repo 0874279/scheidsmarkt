@@ -1,9 +1,5 @@
-<footer class="text-muted">
+<footer class="footer">
     <div class="container">
-        <p class="float-right">
-            <a href="#">Back to top</a>
-        </p>
-        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+        <p> &copy; Scheidsmarkt 2017 | <a href="mailto:orlando@pigeonstein.nl"> Orlando Duivestein </a></p>
     </div>
 </footer>

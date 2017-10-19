@@ -26,8 +26,8 @@ class Match extends Model
         return $this->belongsTo(Typeclass::class);
     }
 
-    public function user(){
-        return $this->belongsTo(User::class);
+    public function Club(){
+        return $this->belongsTo(Club::class);
     }
 
 

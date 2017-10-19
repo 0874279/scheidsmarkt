@@ -1,7 +1,7 @@
 @extends ('layout')
 
 @section ('content')
-<h1>{{$match->user->name}} {{$match->typeteam->name}} {{$match->teamnumber}} - {{$match->awayteam}}</h1>
+<h1>{{$match->club->name}} {{$match->typeteam->name}} {{$match->teamnumber}} - {{$match->awayteam}}</h1>
     Datum {{$match->date}} <br>
     Tijdstip {{$match->time}} <br>
     Type wedstrijd {{$match->typematch->name}} <br>
