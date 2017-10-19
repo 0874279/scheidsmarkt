@@ -8,9 +8,6 @@
 
         {{csrf_field()}}
         <div class="row">
-            <div class="col-sm-6">
-                <input name="club_id" type="number" id="club_id" class="form-control" value="1" hidden>
-            </div>
         </div>
         <div class="row">
             <div class="col-sm-3">
@@ -52,8 +49,8 @@
             </select>
             </div>
             <div class="col-sm-3">
-                <label for="category_id">Categorie</label>
-                <select name="category_id" class="form-control" id="category_id" >
+                <label for="typecategory_id">Categorie</label>
+                <select name="typecategory_id" class="form-control" id="typecategory_id" >
                     @foreach($category as $type)
                         <option value="{{$type->id}}">{{$type->name}}</option>
                     @endforeach
@@ -62,8 +59,8 @@
         </div>
         <div class="row">
             <div class="col-sm-6">
-                <label for="class_id">Klasse</label>
-                <select name="class_id" class="form-control" id="class_id">
+                <label for="typeclass_id">Klasse</label>
+                <select name="typeclass_id" class="form-control" id="typeclass_id">
                     @foreach($class as $type)
                         <option value="{{$type->id}}">{{$type->name}}</option>
                     @endforeach

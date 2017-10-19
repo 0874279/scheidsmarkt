@@ -11,6 +11,10 @@ use App\Match;
 class MatchController extends Controller
 {
 
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $matches = Match::all();
@@ -38,52 +42,26 @@ class MatchController extends Controller
             'awayteam' => 'required'
         ]);
 
-        Match::create(request()->all());
+        Match::create([
+
+            'user_id' => auth()->id(),
+            'date' => request('date'),
+            'time' => request('time'),
+            'typeteam_id' => request('typeteam_id'),
+            'teamnumber' => request('teamnumber'),
+            'awayteam' => request('awayteam'),
+            'typematch_id' => request('typematch_id'),
+            'typecategory_id' => request('typecategory_id'),
+            'typeclass_id' => request('typeclass_id')
+        ]);
+
+
         return redirect('club/matches');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show(Match $match)
     {
         return view('club.matches.show', compact('match'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

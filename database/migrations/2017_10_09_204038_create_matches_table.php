@@ -17,13 +17,13 @@ class CreateMatchesTable extends Migration
             $table->increments('id');
             $table->date('date');
             $table->time('time');
-            $table->integer('club_id');
+            $table->integer('user_id');
             $table->integer('teamnumber');
             $table->integer('typeteam_id')->unsigned();
             $table->string('awayteam');
             $table->integer('typematch_id')->unsigned();
-            $table->integer('category_id')->unsigned();
-            $table->integer('class_id')->unsigned();
+            $table->integer('typecategory_id')->unsigned();
+            $table->integer('typeclass_id')->unsigned();
             $table->timestamps();
         });
     }
