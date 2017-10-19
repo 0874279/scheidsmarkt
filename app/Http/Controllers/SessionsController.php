@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+
 
 class SessionsController extends Controller
 {
@@ -21,7 +23,11 @@ class SessionsController extends Controller
     public function store(){
         if (! auth()->attempt(request(['email', 'password']))) {
 
+            if (! Auth::guard('ref')->attempt(request(['email', 'password']))) {
                 return back()->withErrors(['Gebruikersnaam of wachtwooord onjuist.']);
+
+            }
+
         }
 
         session()->flash('message', 'U bent ingelogd.');
@@ -34,6 +40,7 @@ class SessionsController extends Controller
     // logout
     public function destroy(){
         auth()->logout();
+        auth::guard('ref')->logout();
 
         return redirect()->home();
     }

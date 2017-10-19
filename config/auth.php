@@ -79,7 +79,7 @@ return [
             'driver' => 'eloquent',
             'model' => App\Club::class,
         ],
-        'Refs' => [
+        'refs' => [
             'driver' => 'eloquent',
             'model' => App\Ref::class,
         ],
@@ -112,7 +112,7 @@ return [
             'expire' => 60,
         ],
         'refs' => [
-            'provider' => 'refs',
+            'provider' => 'admins',
             'table' => 'password_resets',
             'expire' => 60,
         ],

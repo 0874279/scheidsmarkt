@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Club;
 use App\Ref;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
@@ -43,7 +44,7 @@ class RegistrationController extends Controller
             // Create the referee
             $ref = Ref::create(request(['name', 'email', 'password', 'address', 'zip', 'housenumber', 'housenumberadd', 'city', 'phone']));
             // Sign in
-            auth()->login($ref);
+            auth::guard('ref')->login($ref);
             // Account created message
             session()->flash('message', 'Bedankt voor het registreren. U bent automatisch ingelogd.');
             // Redirect home

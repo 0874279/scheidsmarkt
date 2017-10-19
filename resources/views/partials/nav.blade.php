@@ -11,7 +11,7 @@
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Informatie Scheidsmarkt
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -33,13 +33,37 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Mijn account</a>
+                    <a class="nav-link" href="{{url('/club/account')}}">Mijn account</a>
                 </li>
             </ul>
+
         <span class="navbar-right">
             <a href="{{url('/?')}}"> Ingelogd als {{Auth::user()->name}} </a> &nbsp
             </span>
+
         <span class="navbar-right">
+                  |   <a href="{{url('/logout')}}">Uitloggen </a>
+            </span>
+
+        @elseif (Auth::guard('ref')->check())
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('/ref/matches/??')}}">Overzicht wedstrijden</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('/ref/matches/??')}}">Mijn reacties</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('/ref/account')}}">Mijn account</a>
+                </li>
+            </ul>
+
+            <span class="navbar-right">
+            <a href="{{url('/?')}}"> Ingelogd als {{Auth::guard('ref')->user()->name}} </a> &nbsp
+            </span>
+
+            <span class="navbar-right">
                   |   <a href="{{url('/logout')}}">Uitloggen </a>
             </span>
 
