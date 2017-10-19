@@ -55,6 +55,7 @@ class MatchController extends Controller
             'typeclass_id' => request('typeclass_id')
         ]);
 
+        session()->flash('message', 'Uw verzoek voor een scheidsrechter is geplaatst.');
 
         return redirect('club/matches');
     }

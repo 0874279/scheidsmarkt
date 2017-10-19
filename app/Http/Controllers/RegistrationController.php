@@ -34,6 +34,8 @@ class RegistrationController extends Controller
 
         // Sign in
         auth()->login($user);
+        // Account created message
+        session()->flash('message', 'Bedankt voor het registreren. U bent automatisch ingelogd.');
         // Redirect home
         return redirect()->home();
     }

@@ -23,7 +23,9 @@ class SessionsController extends Controller
             return back();
         }
 
-         return redirect()->home();
+        session()->flash('message', 'U bent ingelogd.');
+
+        return redirect()->home();
     }
 
     // logout

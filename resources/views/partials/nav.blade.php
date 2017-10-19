@@ -24,7 +24,7 @@
 
         @else
             <span class="navbar-text">
-                small login form
+                Inloggen
             </span>
         @endif
     </div>
