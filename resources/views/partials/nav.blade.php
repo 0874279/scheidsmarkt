@@ -47,11 +47,11 @@
 
         @elseif (Auth::guard('ref')->check())
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/ref/matches/??')}}">Overzicht wedstrijden</a>
+                    <a class="nav-link" href="{{url('/ref/matches/')}}">Overzicht wedstrijden</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/ref/matches/??')}}">Mijn reacties</a>
+                    <a class="nav-link" href="{{url('/ref/matches/myindex')}}">Mijn reacties</a>
                 </li>
 
                 <li class="nav-item">

@@ -42,6 +42,8 @@ class SessionsController extends Controller
         auth()->logout();
         auth::guard('ref')->logout();
 
+        session()->flash('message', 'U bent uitgelogd.');
+
         return redirect()->home();
     }
 }

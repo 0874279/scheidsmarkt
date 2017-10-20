@@ -3,14 +3,20 @@
 // Home
 Route::get('/', 'HomeController@index')->name('home');
 
-// Controller for form to club new matches
-Route::get('/club/matches/create', 'MatchController@create');
-// Controller to put new match into database
-Route::post('club/matches', 'MatchController@store');
-// View all posted matches
-Route::get('club/matches', 'MatchController@index');
-// View a specific match
-Route::get('/club/matches/{match}', 'MatchController@show');
+// Clubs
+Route::get('/club/matches/create', 'MatchController@create'); // Controller for form to club new matches
+Route::post('club/matches', 'MatchController@store'); // Controller to put new match into database
+Route::get('club/matches', 'MatchController@index'); // View all posted matches
+Route::get('/club/matches/{match}', 'MatchController@show'); // View a specific match
+Route::get('club/account', 'ClubAccountController@index'); // View and edit account settings
+
+
+// Refs
+Route::get('ref/matches', 'RefMatchController@index'); // View all posted matches
+Route::get('ref/matches/myindex', 'RefMatchController@index'); // View all responded by ref matches
+Route::get('ref/account', 'RefAccountController@index'); // View and edit account settings
+
+
 
 // Create a session (login)
 Route::get('/login', 'SessionsController@create')->name('login');
