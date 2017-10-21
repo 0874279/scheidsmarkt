@@ -38,7 +38,7 @@
             </ul>
 
         <span class="navbar-right">
-            <a href="{{url('/?')}}"> Ingelogd als {{Auth::user()->name}} </a> &nbsp
+            <a href="{{url('/club/account')}}"> Ingelogd als {{Auth::user()->name}} </a> &nbsp
             </span>
 
         <span class="navbar-right">
@@ -60,7 +60,7 @@
             </ul>
 
             <span class="navbar-right">
-            <a href="{{url('/?')}}"> Ingelogd als {{Auth::guard('ref')->user()->name}} </a> &nbsp
+            <a href="{{url('/ref/account')}}"> Ingelogd als {{Auth::guard('ref')->user()->name}} </a> &nbsp
             </span>
 
             <span class="navbar-right">
