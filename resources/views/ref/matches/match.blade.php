@@ -11,9 +11,6 @@
         <div id="collapse{{$match->id}}" class="collapse" role="tabpanel" aria-labelledby="headingOne">
             <div class="card-block">
                 <a href="/ref/matches/{{$match->id}}"> 0. Ga naar wedstrijd </a>
-                <form action="" method="post"> 1. Reageren </form>
-                2. Reactie verwijderen
-
 
                 <form method="post" action="/ref/matches/">
                     {{csrf_field()}}

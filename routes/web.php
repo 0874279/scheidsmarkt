@@ -12,15 +12,12 @@ Route::get('club/account', 'ClubAccountController@index'); // View and edit acco
 
 
 // Refs
-Route::get('ref/matches', 'RefMatchController@index'); // View all posted matches
-Route::get('ref/matches/myindex', 'RefMatchController@myindex'); // View all responded by ref matches
+Route::get('ref/matches', 'RefMatchController@index')->name('refMatches'); // View all posted matches
+Route::get('ref/matches/myindex', 'RefMatchController@myindex')->name('refResponded'); // View all responded by ref matches
 Route::get('ref/account', 'RefAccountController@index'); // View and edit account settings
 Route::get('/ref/matches/{match}', 'RefMatchController@show'); // View a specific match
 Route::post('/ref/matches/', 'RefMatchController@store'); // Respond to a match
 Route::get('/ref/matches/destroy/{id}', 'RefMatchController@destroy'); // Remove response
-
-
-
 
 // Create a session (login)
 Route::get('/login', 'SessionsController@create')->name('login');

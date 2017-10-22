@@ -8,11 +8,11 @@ use App\Match;
 use Illuminate\Support\Facades\Auth;
 
 
-
 class RefMatchController extends Controller
 {
-    public function index(){
 
+
+    public function index(){
         $matches = Match::all();
 
         return view('ref.matches.index', compact('matches'));
@@ -36,7 +36,8 @@ class RefMatchController extends Controller
         //check if the referee already responded to this match
         $duplicate = Matches_Ref::where('matches_id', request('match_id'))->where('refs_id', Auth::guard('ref')->user()->id)->first();
 
-            if ($duplicate == null) {
+        if ($duplicate == null) {
+
                 //insert into db
                 Matches_Ref::create([
                     'matches_id' => request('match_id'),
@@ -44,13 +45,13 @@ class RefMatchController extends Controller
                     ]);
                 //flash message
                 session()->flash('message', 'Uw reactie is geplaatst.');
-                return view('ref.matches.index');
+            return redirect()->route('refMatches');
             }
             else
             {
                 //flash message
                 session()->flash('message', 'U heeft al gereageerd op deze wedstrijd.');
-                return view('ref.matches.index');
+                return redirect()->route('refMatches');
             }
     }
 
@@ -59,6 +60,7 @@ class RefMatchController extends Controller
         Matches_Ref::where('matches_id', $id)->where('refs_id', Auth::guard('ref')->user()->id)->delete();
 
         session()->flash('message', 'Uw reactie is verwijderd');
-        return view('index');
+
+        return redirect()->route('refResponded');
     }
 }
