@@ -17,7 +17,8 @@ class MatchController extends Controller
 
     public function index()
     {
-        $matches = Match::all();
+        //search for all matches posted by club
+        $matches = Match::where('club_id', auth()->id())->get();
 
 
         return view ('club.matches.index', compact('matches'));
@@ -64,6 +65,15 @@ class MatchController extends Controller
     public function show(Match $match)
     {
         return view('club.matches.show', compact('match'));
+    }
+
+    public function destroy($id){
+
+        Match::where('id', $id)->where('club_id', auth()->id())->delete();
+
+        session()->flash('message', 'Uw verzoek is verwijderd');
+
+        return redirect()->route('clubMatches');
     }
 
 }
