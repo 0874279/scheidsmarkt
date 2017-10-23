@@ -18,6 +18,7 @@ class CreateMatchesRefsTable extends Migration
             $table->foreign('matches_id')->references('id')->on('matches')->onDelete('cascade');
             $table->integer('refs_id')->unsigned()->index();
             $table->foreign('refs_id')->references('id')->on('refs')->onDelete('cascade');
+            $table->boolean('assigned')->default(0);
             $table->timestamps();
         });
     }
