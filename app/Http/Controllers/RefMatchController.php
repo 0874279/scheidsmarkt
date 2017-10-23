@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Matches_Ref;
+use App\Match_Ref;
 use Illuminate\Http\Request;
 use App\Match;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +20,7 @@ class RefMatchController extends Controller
 
     public function myindex(){
         // Find responded matches ID's
-        $responded_ref = Matches_Ref::where('refs_id', Auth::guard('ref')->user()->id)->pluck('matches_id');
+        $responded_ref = Match_Ref::where('refs_id', Auth::guard('ref')->user()->id)->pluck('matches_id');
 
         $matches = Match::whereIn('id', $responded_ref)->get();
 
@@ -34,12 +34,12 @@ class RefMatchController extends Controller
 
     public function store(){
         //check if the referee already responded to this match
-        $duplicate = Matches_Ref::where('matches_id', request('match_id'))->where('refs_id', Auth::guard('ref')->user()->id)->first();
+        $duplicate = Match_Ref::where('matches_id', request('match_id'))->where('refs_id', Auth::guard('ref')->user()->id)->first();
 
         if ($duplicate == null) {
 
                 //insert into db
-                Matches_Ref::create([
+                Match_Ref::create([
                     'matches_id' => request('match_id'),
                     'refs_id' => Auth::guard('ref')->user()->id
                     ]);
@@ -57,7 +57,7 @@ class RefMatchController extends Controller
 
     public function destroy($id){
 
-        Matches_Ref::where('matches_id', $id)->where('refs_id', Auth::guard('ref')->user()->id)->delete();
+        Match_Ref::where('matches_id', $id)->where('refs_id', Auth::guard('ref')->user()->id)->delete();
 
         session()->flash('message', 'Uw reactie is verwijderd');
 

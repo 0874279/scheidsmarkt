@@ -1,7 +1,7 @@
 @extends ('layout')
 
 @section ('content')
-<h1>{{$match->club->name}} {{$match->typeteam->name}} {{$match->teamnumber}} - {{$match->awayteam}}</h1>
+<h1>ID: {{$match->id}} {{$match->club->name}} {{$match->typeteam->name}} {{$match->teamnumber}} - {{$match->awayteam}}</h1>
     Datum {{$match->date}} <br>
     Tijdstip {{$match->time}} <br>
     Type wedstrijd {{$match->typematch->name}} <br>
@@ -10,7 +10,7 @@
     Scheidsrechter: NTB <br>
 
     Wijzigen
-    Scheidsrechter toewijzen
+@include ('club.matches.assign')
     Annuleren
     Terug naar overzicht
 @endsection

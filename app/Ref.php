@@ -11,12 +11,6 @@ class Ref extends Authenticatable
 
     protected $guard = 'ref';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
@@ -26,11 +20,7 @@ class Ref extends Authenticatable
         'name', 'email', 'password', 'address', 'housenumber', 'housenumberadd', 'zip', 'city', 'phone',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+
     protected $hidden = [
         'password', 'remember_token',
     ];

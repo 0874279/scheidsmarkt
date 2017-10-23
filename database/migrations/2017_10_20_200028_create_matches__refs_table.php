@@ -13,9 +13,11 @@ class CreateMatchesRefsTable extends Migration
      */
     public function up()
     {
-        Schema::create('matches__refs', function (Blueprint $table) {
-            $table->integer('matches_id');
-            $table->integer('refs_id');
+        Schema::create('match_ref', function (Blueprint $table) {
+            $table->integer('matches_id')->unsigned()->index();
+            $table->foreign('matches_id')->references('id')->on('matches')->onDelete('cascade');
+            $table->integer('refs_id')->unsigned()->index();
+            $table->foreign('refs_id')->references('id')->on('refs')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateMatchesRefsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('matches__refs');
+        Schema::dropIfExists('matches_refs');
     }
 }

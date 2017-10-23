@@ -13,7 +13,7 @@ class CreateAssignedrefTable extends Migration
      */
     public function up()
     {
-        Schema::create('assignedref', function (Blueprint $table) {
+        Schema::create('assignedrefs', function (Blueprint $table) {
             $table->integer('matches_id');
             $table->integer('refs_id');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateAssignedrefTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assignedref');
+        Schema::dropIfExists('assignedrefs');
     }
 }

@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Match extends Model
-{
+
     public function typecategory()
     {
         return $this->belongsTo(Typecategory::class);
@@ -29,7 +29,6 @@ class Match extends Model
     public function club(){
         return $this->belongsTo(Club::class);
     }
-
 
     protected $guarded = [];
 }

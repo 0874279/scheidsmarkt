@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Assignedref;
+use App\Match_Ref;
 use Illuminate\Http\Request;
 use DB;
 use App\Quotation;
@@ -64,7 +66,9 @@ class MatchController extends Controller
 
     public function show(Match $match)
     {
-        return view('club.matches.show', compact('match'));
+        $respondedRefs = Match_Ref::where('matches_id', $match->id)->get();
+
+        return view('club.matches.show', compact('match', 'respondedRefs'));
     }
 
     public function destroy($id){
@@ -73,6 +77,20 @@ class MatchController extends Controller
 
         session()->flash('message', 'Uw verzoek is verwijderd');
 
+        return redirect()->route('clubMatches');
+    }
+
+    public function assignref(){
+        $matches_id = request('matches_id');
+        $refs_id = request('refs_id');
+
+        Assignedref::create([
+            'refs_id' => $refs_id,
+            'matches_id' => $matches_id
+
+        ]);
+
+        session()->flash('message', 'U heeft een scheidsrechter aangesteld.');
         return redirect()->route('clubMatches');
     }
 
