@@ -1,7 +1,3 @@
-
-<!-- Button trigger modal -->
-<button type="button" data-toggle="modal" data-target="#assignRef{{$match->id}}">Scheidsrechter toewijzen</button>
-<!-- Modal -->
 <div class="modal fade" id="assignRef{{$match->id}}" tabindex="-1" role="dialog" aria-labelledby="modal{{$match->id}}" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

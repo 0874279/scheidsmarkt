@@ -77,7 +77,7 @@ class MatchController extends Controller
 
         if ($assignedRef == null)
         {
-            return view('club.matches.show', compact('match', 'respondedRefs'));
+            return view('club.matches.show', compact('match', 'respondedRefs', 'referee', 'typeteams', 'typematch', 'class', 'category'));
         }
         else{
             $refereeID = $assignedRef->refs_id;
