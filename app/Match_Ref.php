@@ -8,6 +8,8 @@ class Match_Ref extends Pivot
 {
     protected $guarded = [];
 
+    protected $primaryKey = 'matches_id';
+
     protected $table = "match_ref";
 
     public function match(){
