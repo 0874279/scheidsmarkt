@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Assignedref;
 use App\Match_Ref;
+use App\Ref;
 use Illuminate\Http\Request;
 use DB;
 use App\Quotation;
@@ -66,9 +66,25 @@ class MatchController extends Controller
 
     public function show(Match $match)
     {
+        $typeteams = DB::table('typeteams')->get();
+        $typematch = DB::table('typematches')->get();
+        $class = DB::table('typeclasses')->get();
+        $category = DB::table('typecategories')->get();
+
         $respondedRefs = Match_Ref::where('matches_id', $match->id)->get();
 
-        return view('club.matches.show', compact('match', 'respondedRefs'));
+        $assignedRef = Match_Ref::where('matches_id', $match->id)->where('assigned', 1)->first();
+
+        if ($assignedRef == null)
+        {
+            return view('club.matches.show', compact('match', 'respondedRefs', 'referee', 'typeteams', 'typematch', 'class', 'category'));
+        }
+        else{
+            $refereeID = $assignedRef->refs_id;
+            $referee = Ref::where('id', $refereeID)->first();
+            return view('club.matches.showref', compact('match', 'respondedRefs', 'refereeID', 'referee', 'typeteams', 'typematch', 'class', 'category'));
+        }
+
     }
 
     public function destroy($id){
@@ -84,13 +100,43 @@ class MatchController extends Controller
         $matches_id = request('matches_id');
         $refs_id = request('refs_id');
 
-        Assignedref::create([
-            'refs_id' => $refs_id,
-            'matches_id' => $matches_id
+        //Check if there already is an ref assigned
+        $alreadyAssigned = Match_Ref::where('matches_id' ,$matches_id)->where('assigned', 1)->first();
 
+        if ($alreadyAssigned == null) {
+            // assign ref
+            DB::update("UPDATE match_ref SET assigned = 1 WHERE (matches_id, refs_id) = ($matches_id, $refs_id) ");
+            session()->flash('message', 'U heeft een scheidsrechter aangesteld.');
+            return redirect()->route('clubMatches');
+        }
+        else {
+            // error: ref already assigned
+            session()->flash('message', 'Er is al een scheidsrechter aangesteld.');
+            return redirect()->route('clubMatches');
+        }
+    }
+    public function update($match){
+        // validate data
+        $this->validate(request(), [
+            'date' => 'required',
+            'time' => 'required',
+            'teamnumber' => 'required',
+            'awayteam' => 'required'
         ]);
+        // update database
+        Match::where('id', $match)->update([
 
-        session()->flash('message', 'U heeft een scheidsrechter aangesteld.');
+            'date' => request('date'),
+            'time' => request('time'),
+            'typeteam_id' => request('typeteam_id'),
+            'teamnumber' => request('teamnumber'),
+            'awayteam' => request('awayteam'),
+            'typematch_id' => request('typematch_id'),
+            'typecategory_id' => request('typecategory_id'),
+            'typeclass_id' => request('typeclass_id')
+        ]);
+        // redirect to match
+        session()->flash('message', 'Wijzigingen doorgevoerd');
         return redirect()->route('clubMatches');
     }
 

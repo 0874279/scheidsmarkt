@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Assignedref;
 use App\Match_Ref;
 use Illuminate\Http\Request;
 use App\Match;
@@ -24,7 +25,9 @@ class RefMatchController extends Controller
 
         $matches = Match::whereIn('id', $responded_ref)->get();
 
-        return view('ref.matches.myindex', compact('matches'));
+        $assignedMatches = Match_Ref::where('refs_id', Auth::guard('ref')->user()->id)->where('assigned', '1')->pluck('matches_id');
+
+        return view('ref.matches.myindex', compact('matches', 'assignedMatches'));
     }
 
     public function show(Match $match)
@@ -63,4 +66,6 @@ class RefMatchController extends Controller
 
         return redirect()->route('refResponded');
     }
+
+
 }

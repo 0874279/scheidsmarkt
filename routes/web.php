@@ -4,13 +4,14 @@
 Route::get('/', 'HomeController@index')->name('home');
 
 // Clubs
-Route::get('/club/matches/create', 'MatchController@create'); // Controller for form to club new matches
+Route::get('club/matches/create', 'MatchController@create'); // Controller for form to club new matches
 Route::post('club/matches', 'MatchController@store'); // Controller to put new match into database
 Route::get('club/matches', 'MatchController@index')->name('clubMatches'); // View all posted matches
-Route::get('/club/matches/{match}', 'MatchController@show'); // View a specific match
+Route::get('club/matches/{match}', 'MatchController@show'); // View a specific match
 Route::get('club/account', 'ClubAccountController@index'); // View and edit account settings
-Route::get('/club/matches/destroy/{id}', 'MatchController@destroy'); // Remove match
-Route::get('/club/matches/{id}/assign', 'MatchController@assignref'); // Controller to assign a referee
+Route::get('club/matches/destroy/{id}', 'MatchController@destroy'); // Remove match
+Route::get('club/matches/{id}/assign', 'MatchController@assignref'); // Controller to assign a referee
+Route::patch('club/matches/{id}/update', 'MatchController@update'); // edit a match
 
 
 // Refs
