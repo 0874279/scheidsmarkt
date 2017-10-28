@@ -3,8 +3,9 @@
 @section ('content')
     <div>
     <h1> Aangestelde wedstrijden</h1>
-            @foreach ($assignedMatches as $mymatch)
-                {{$matches[$mymatch]}}
+            @foreach ($assigned_matches as $assigned_match)
+                @include ('ref.matches.assignedmatch')
+                <br>
             @endforeach
 
     </div>
@@ -13,7 +14,6 @@
 
     <div>
         @foreach ($matches as $match)
-
             @include ('ref.matches.mymatch')
             <br>
         @endforeach

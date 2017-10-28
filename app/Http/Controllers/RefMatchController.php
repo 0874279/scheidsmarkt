@@ -21,13 +21,13 @@ class RefMatchController extends Controller
 
     public function myindex(){
         // Find responded matches ID's
-        $responded_ref = Match_Ref::where('refs_id', Auth::guard('ref')->user()->id)->pluck('matches_id');
-
+        $responded_ref = Match_Ref::where('refs_id', Auth::guard('ref')->user()->id)->where('assigned','!=' , 1)->pluck('matches_id');
         $matches = Match::whereIn('id', $responded_ref)->get();
 
-        $assignedMatches = Match_Ref::where('refs_id', Auth::guard('ref')->user()->id)->where('assigned', '1')->pluck('matches_id');
+        $assigned_matches_id = Match_Ref::where('refs_id', Auth::guard('ref')->user()->id)->where('assigned', 1)->pluck('matches_id');
+        $assigned_matches = Match::whereIn('id', $assigned_matches_id)->get();
 
-        return view('ref.matches.myindex', compact('matches', 'assignedMatches'));
+        return view('ref.matches.myindex', compact('matches', 'assignedMatches', 'assigned_matches'));
     }
 
     public function show(Match $match)

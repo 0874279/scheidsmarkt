@@ -10,9 +10,8 @@
 
         <div id="collapse{{$match->id}}" class="collapse" role="tabpanel" aria-labelledby="headingOne">
             <div class="card-block">
-                <a href="/ref/matches/{{$match->id}}"> 0. Ga naar wedstrijd </a>
-
-                <a href="/ref/matches/destroy/{{$match->id}}">Reactie verwijderen</a>
+                <input type="button" class="btn btn-default" value="Ga naar wedstrijd" onclick="location.href ='/ref/matches/{{$match->id}}'">
+                <input type="button" class="btn btn-danger" value="Reactie verwijderen" onclick="location.href ='/ref/matches/destroy/{{$match->id}}'">
             </div>
         </div>
     </div>
