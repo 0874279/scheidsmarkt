@@ -1,6 +1,7 @@
 @extends ('layout')
 
 @section ('content')
+
     <h1> Overzicht wedstrijden</h1>
 
     <div>
