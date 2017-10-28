@@ -1,4 +1,6 @@
 @extends ('layout')
+@section('title', 'Nieuw verzoek')
+
 
 @section ('content')
     <title>Nieuwe wedstrijd</title>

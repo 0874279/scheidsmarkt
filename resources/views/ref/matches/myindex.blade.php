@@ -1,8 +1,9 @@
 @extends ('layout')
+@section('title', 'Mijn reacties')
 
 @section ('content')
     <div>
-    <h1> Aangestelde wedstrijden</h1>
+    <h2> Aangestelde wedstrijden</h2>
             @foreach ($assigned_matches as $assigned_match)
                 @include ('ref.matches.assignedmatch')
                 <br>
@@ -10,7 +11,7 @@
 
     </div>
     <div>
-    <h1> Mijn Reacties</h1>
+    <h2> Mijn Reacties</h2>
 
     <div>
         @foreach ($matches as $match)

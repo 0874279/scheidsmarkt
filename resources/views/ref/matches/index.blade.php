@@ -1,8 +1,9 @@
 @extends ('layout')
+@section('title', 'Overzicht wedstrijden')
 
 @section ('content')
 
-    <h1> Overzicht wedstrijden</h1>
+    <h2> Overzicht wedstrijden</h2>
 
     <div>
         @foreach ($matches as $match)

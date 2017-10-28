@@ -1,4 +1,6 @@
 @extends ('layout')
+@section('title', 'Wedstrijd')
+
 
 @section ('content')
 <h1>{{$match->club->name}} {{$match->typeteam->name}} {{$match->teamnumber}} - {{$match->awayteam}} </h1>

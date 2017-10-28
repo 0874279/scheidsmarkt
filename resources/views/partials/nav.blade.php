@@ -15,9 +15,9 @@
                     Informatie Scheidsmarkt
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{{url('/about')}}">Over Scheidsmarkt</a>
-                    <a class="dropdown-item" href="{{url('/howto')}}">Hoe werkt Scheidsmarkt</a>
-                    <a class="dropdown-item" href="{{url('/contact')}}">Contact</a>
+                    <a class="dropdown-item disabled " href="{{url('/about')}}">Over Scheidsmarkt</a>
+                    <a class="dropdown-item disabled " href="{{url('/howto')}}">Hoe werkt Scheidsmarkt</a>
+                    <a class="dropdown-item " href="{{url('/contact')}}">Contact</a>
                 </div>
             </li>
 

@@ -1,4 +1,6 @@
 @extends('layout')
+@section('title', 'Inloggen')
+
 
 @section('content')
 
