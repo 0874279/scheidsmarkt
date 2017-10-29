@@ -27,6 +27,7 @@ class RefAccountController extends Controller
             'housenumber' => 'required',
             'city' => 'required',
             'phone' => 'required'
+            
         ]);
         // update data
         $update = Ref::find(Auth::guard('ref')->user()->id);
@@ -36,6 +37,9 @@ class RefAccountController extends Controller
         $update->housenumber = request('housenumber');
         $update->housenumberadd = request('housenumberadd');
         $update->phone = request('phone');
+        $update->city = request('city');
+        $update->address = request('address');
+
         $update->save();
         // return to account page
         session()->flash('message', 'Uw gegevens zijn aangepast.');
