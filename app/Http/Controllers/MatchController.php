@@ -60,7 +60,6 @@ class MatchController extends Controller
 
 
         session()->flash('message', 'Uw verzoek voor een scheidsrechter is geplaatst.');
-
         return redirect('club/matches');
     }
 

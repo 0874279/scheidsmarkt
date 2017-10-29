@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Assignedref;
 use App\Match_Ref;
 use Illuminate\Http\Request;
 use App\Match;
@@ -12,10 +11,12 @@ use Illuminate\Support\Facades\Auth;
 class RefMatchController extends Controller
 {
 
+    public function __construct(){
+        $this->middleware('auth:ref');
+    }
 
     public function index(){
         $matches = Match::all();
-
         return view('ref.matches.index', compact('matches'));
     }
 

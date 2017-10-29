@@ -1,4 +1,5 @@
 @extends('layout')
+@section('title', 'Registreren')
 
 @section('content')
     <h1>Registreren</h1>
