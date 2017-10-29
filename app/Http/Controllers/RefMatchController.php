@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Assignedref;
 use App\Match_Ref;
 use Illuminate\Http\Request;
 use App\Match;

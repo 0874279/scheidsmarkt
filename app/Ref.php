@@ -11,6 +11,7 @@ class Ref extends Authenticatable
 
     protected $guard = 'ref';
 
+
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);

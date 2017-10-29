@@ -31,7 +31,7 @@ class RegistrationController extends Controller
 
         if (request() ['type'] == 1){
             // Create the club
-            $club = Club::create(request(['type', 'name', 'email', 'password', 'address', 'zip', 'housenumber', 'housenumberadd', 'city', 'phone']));
+            $club = Club::create(request(['name', 'email', 'password', 'address', 'zip', 'housenumber', 'housenumberadd', 'city', 'phone']));
             // Sign in
             auth()->login($club);
             // Account created message
