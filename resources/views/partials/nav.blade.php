@@ -57,6 +57,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/ref/account')}}">Mijn account</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('/ref/search')}}">Zoeken</a>
+                </li>
             </ul>
 
             <span class="navbar-right">

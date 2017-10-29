@@ -26,6 +26,7 @@ Route::get('/ref/matches/destroy/{id}', 'RefMatchController@destroy'); // Remove
 
 Route::get('ref/account', 'RefAccountController@index')->name('accountRef'); // View and edit account settings
 Route::post('/ref/account/update', 'RefAccountController@update'); // Change account details
+Route::get('ref/account/search','RefAccountController@search');
 
 
 // Create a session (login)

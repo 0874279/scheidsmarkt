@@ -50,7 +50,9 @@ class RefAccountController extends Controller
         return redirect()->route('accountRef');
     }
 
-    public function newsletter(){
+    public function search(){
 
+
+        return view('ref.account.search');
     }
 }

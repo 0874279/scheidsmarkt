@@ -24,6 +24,7 @@ class CreateRefsTable extends Migration
             $table->string('zip');
             $table->string('city');
             $table->integer('phone');
+            $table->boolean('newsletter');
             $table->rememberToken();
             $table->timestamps();
         });
