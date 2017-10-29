@@ -10,6 +10,10 @@ use function redirect;
 
 class RefAccountController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth:ref');
+    }
+
     public function index(){
         // Get account details
         $accountDetails = Ref::where('id', Auth::guard('ref')->user()->id)->first();
@@ -27,7 +31,7 @@ class RefAccountController extends Controller
             'housenumber' => 'required',
             'city' => 'required',
             'phone' => 'required'
-            
+
         ]);
         // update data
         $update = Ref::find(Auth::guard('ref')->user()->id);
