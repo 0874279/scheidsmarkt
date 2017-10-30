@@ -21,7 +21,7 @@
                 </div>
             </li>
 
-        @if (Auth::check())
+        @if (Auth::guard('web')->check())
 
 
                 <li class="nav-item">
@@ -59,7 +59,9 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('/ref/search')}}">Zoeken</a>
+                    <form method="get" action="/ref/account/search/" class="form-inline">
+                        <input name="search" class="form-control mr-sm-2" type="search" placeholder="Zoek vereniging">
+                    </form>
                 </li>
             </ul>
 
