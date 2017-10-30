@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Club;
 use App\Ref;
 use function compact;
 use Illuminate\Support\Facades\Auth;
@@ -50,9 +51,11 @@ class RefAccountController extends Controller
         return redirect()->route('accountRef');
     }
 
-    public function search(){
+    public function search(Request $request){
+
+        $clubs = Club::search($request->search)->get();
 
 
-        return view('ref.account.search');
+        return view('ref.account.search', compact('clubs'));
     }
 }

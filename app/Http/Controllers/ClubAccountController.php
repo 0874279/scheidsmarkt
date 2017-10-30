@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 class ClubAccountController extends Controller
 {
     public function __construct(){
-        session()->flash('message', 'U moet ingelogd zijn om deze pagina te bekijken.');
         $this->middleware('auth');
     }
 
